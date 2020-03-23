@@ -10,7 +10,7 @@ class Order extends Component {
   
     async componentDidMount(){
                      
-        const url = "http://localhost:3200/api/order";
+        const url = "http://localhost:3200/orders";
         console.log(url);
         const response = await fetch(url);
         console.log('response - ',response);

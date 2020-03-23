@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import TableInfo from "./TableInfo";
+import NavTables from "./Waitress.nav";
 
 class Waitress extends Component {
     constructor() {
@@ -11,7 +11,7 @@ class Waitress extends Component {
 
   
     async componentDidMount(){      
-        const url = "http://localhost:3200/api/reservation";
+        const url = "http://localhost:3200/reservations";
         console.log(url);
         const response = await fetch(url);
         console.log('response - ',response);
@@ -56,7 +56,7 @@ class Waitress extends Component {
                             </td>)}
                         </tr>
                     </table>
-                    <TableInfo/>
+                    <NavTables/>
                </div>
             )
        

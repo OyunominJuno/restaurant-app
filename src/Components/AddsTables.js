@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import {BrowserRouter as Router, Route} from "react-router-dom";
-import TableInfo from './TableInfo';
 
 export default class AddsTables extends Component {
            state = {
@@ -23,21 +22,21 @@ export default class AddsTables extends Component {
 
     handleSubmit = event => {
         //event.preventDefault();
-       axios.post('http://localhost:3200/api/dish', this.state)
+       axios.post('http://localhost:3200/dishes', this.state)
           .then(res => {
               console.log(res);
               console.log(res.data);
           });
     }
     handleReserve = event => {       
-        axios.post('http://localhost:3200/api/reservation', this.state)
+        axios.post('http://localhost:3200/reservations', this.state)
             .then(res=> {
                 console.log(res);
             console.log(res.data);
             });
     }
     handleOrder = event => {
-        axios.post('http://localhost:3200/api/order',this.state)
+        axios.post('http://localhost:3200/orders',this.state)
             .then(res=> {
                 console.log(res);
             console.log(res.data);
@@ -84,7 +83,7 @@ render(){
         Order status: <input type="text" name="orderStatus" value={this.state.orderStatus} onChange={this.handleChange}/>        
         </label>
         <a href='http://localhost:3000/api/order/table:1'><button type="order"> Orders</button></a> 
-        <a href='http://localhost:3200/api/orders'><button>alldishes</button></a>
+        <a href='http://localhost:3200/orderss'><button>alldishes</button></a>
         </li>
         
         </div> 

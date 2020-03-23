@@ -7,7 +7,7 @@ export default class DishList extends Component {
     }
 
 componentDidMount(){
-    axios.get('http://localhost:3200/api/dish')
+    axios.get('http://localhost:3200/dishes')
         .then(res => {
             console.log(res);
             this.setState({dishes: res.data});

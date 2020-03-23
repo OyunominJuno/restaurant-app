@@ -21,7 +21,7 @@ handleChange = event => {
 
 handleSubmit = event => {
     //event.preventDefault();
-   axios.post('http://localhost:3200/api/dish', this.state)
+   axios.post('http://localhost:3200/dishes', this.state)
       .then(res => {
           console.log(res);
           console.log(res.data);

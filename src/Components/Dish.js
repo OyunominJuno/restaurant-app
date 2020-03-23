@@ -12,7 +12,7 @@ class Dish extends Component {
     async componentDidMount(){
                      
             //    data => this.setState({dish: data}, () => console.log('Dishes fetched...',data)));
-       const url = "http://localhost:3200/api/dish";
+       const url = "http://localhost:3200/dishes";
         console.log(url);
         const response = await fetch(url);
         console.log('response - ',response);
