@@ -35,7 +35,7 @@ router.route('/add').post((req, res) => {
 });
 router.route('/').get((req, res) => {
     Reservation.find()
-        .then(res => res.json(res))
+        .then(reservation => res.json(reservation))
         .catch(err => res.status(400).json('Error: ' + err));
 });
 
