@@ -20,12 +20,17 @@ handleChange = event => {
 }
 
 handleSubmit = event => {
+    const dish = {
+        name: this.state.name, 
+       description: this.state.description,
+       quantity: this.state.quantity,
+       service: this.state.service
+    }
     //event.preventDefault();
-   axios.post('http://localhost:3200/dishes', this.state)
+   axios.post('http://localhost:3200/dishes/add', dish)
       .then(res => {
-          console.log(res);
           console.log(res.data);
-      })
+      }).catch(err => console.log(err))
 }
 
 render(){

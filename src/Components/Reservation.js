@@ -13,11 +13,8 @@ class Reservation extends Component {
                      
             //    data => this.setState({dish: data}, () => console.log('Dishes fetched...',data)));
         const url = "http://localhost:3200/reservations";
-        console.log(url);
         const response = await fetch(url);
-        console.log('response - ',response);
         const data = await response.json();
-        console.log('data - ',data);
         this.setState({ reservation: data }, () => console.log('Reservations fetched...', data));
     }
 

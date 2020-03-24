@@ -1,27 +1,37 @@
-import React from 'react';
-import '../index.css';
+import React, { Component } from 'react';
 import axios from 'axios';
-//import { BrowserRouter as Router, Route } from "react-router-dom";
-//import "bootstrap/dist/css/bootstap.min.css"
 
-class TableInfo extends React.Component {
-    constructor(props) {
-        super(props);
+class TableInfo extends Component {
+    constructor() {
+        super();
         this.state = {
-            tableNumber: 0, 
-            seatNumber: 0,
+            tableNumber: 1,
+            seatNumber: 3,
             orderSubmitted: false,
             waitTime: 0,
-            orderArray: []
-            ,
-            menuArray: ["Burger", "Fries", "Pizza"]
+            orderArray: [],
+            menuArray: [],
         }
         this.onPay = this.onPay.bind(this);
         this.onSubmit = this.onSubmit.bind(this);
         this.updateOrderArray = this.updateOrderArray.bind(this);
         this.cancelOrderArray = this.cancelOrderArray.bind(this);
     }
-    
+
+    async componentDidMount() {
+        axios.get('http://localhost:3200/dishes')
+            .then(response => {
+                if (response.data.length > 0) {
+                    this.setState({
+                        menuArray: response.data.map(dish => dish.name)
+                    })
+                }
+            })
+            .catch((error) => {
+                console.log(error);
+            })
+    }
+    // Try to add another one of these for dishes and add dishes array to constructor above, to address dishes in order dropdown
     onSubmit(e) {
         e.preventDefault();
 
@@ -42,7 +52,7 @@ class TableInfo extends React.Component {
         });
         //window.location = '/';
     };
-    
+
     onPay() {
         this.setState({
             orderSubmitted: false,
@@ -61,19 +71,12 @@ class TableInfo extends React.Component {
             orderArray: newArray
         });
     }
-    //deleteOrder(e) {
-    //    this.setState({
-    //        orderArray: this.state.orderArray.filter(function (order) {
-    //            return order !== e.target.value
-    //            })
-    //    });
-        
-    //}
+
     render() {
         const listItems = this.state.menuArray.map((elem, index) =>
             <div className="menu">
                 <button key={index} className={elem} onClick={(e) => this.updateOrderArray(elem, e)}>{elem}</button>
-                
+
             </div>
         );
         const listOrders = this.state.orderArray.map((elem, index) =>
@@ -82,24 +85,28 @@ class TableInfo extends React.Component {
                     <button key={index} onClick={(e) => this.cancelOrderArray(index, e)}>Remove</button>
                 </li>
             </div>
-                );
-        const submitted = this.state.orderSubmitted;
-        return (<div className="TableInfo">
+        );
+        //const submitted = this.state.orderSubmitted;
+        return (
 
-            <ul>
-                <li>Table Number :{this.state.tableNumber}</li>
-                <li>Seat Number   :{this.state.seatNumber}</li>
-                <li>Order Submitted  :{submitted ? 'Yes' : 'No'}</li>
-                <li>Wait Time :{this.state.waitTime}</li>
-            </ul>
-            <ol>
-                {listOrders}
-            </ol>
-            {listItems}
-            <button onClick={this.onSubmit}><h3>Submit Order</h3></button>
-            <button onClick={this.onPay}><h3>Pay Order</h3></button>
-        </div>)
+            <div>
+                
+                            <button type="submit" onClick={this.onSubmit}><strong>Place Order</strong></button>
+                            <button onClick={this.onPay}><strong>Pay Order</strong></button>
+                            <h4>Order:</h4>
+                            {this.state.orderArray.map(elem => {
+                                return (<p>{elem + " "}</p>)
+                            })}
+                            <h4>Menu:</h4>
+                            {listItems}
+                            <ol>
+                                {listOrders}
+                            </ol>
+                            <h2>{this.state.orderSubmitted ? 'Order Submitted!' : ''}</h2>
+       
+            </div>
+        )
+
     }
 }
-
-export default TableInfo
+export default TableInfo;

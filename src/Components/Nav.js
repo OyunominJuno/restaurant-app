@@ -1,9 +1,10 @@
 import React, {Component} from 'react';
 import Front from './Front';
-import Waitress from './Waitress';
 import Chef from './Chef';
 import {BrowserRouter as Router, Route} from "react-router-dom";
 import { Link } from 'react-router-dom';
+import NavWaitress from './NavWaitress';
+
 
 class Nav extends Component{   
     render(){   
@@ -26,7 +27,7 @@ class Nav extends Component{
         
 
                     <Route path="/api/order/front" component={Front}/>
-                    <Route path="/api/order/waitress" component={Waitress}/>
+                    <Route path="/api/order/waitress" component={NavWaitress}/>
                     <Route path="/api/order/chef" component={Chef}/>
         
         </div>
