@@ -1,5 +1,9 @@
 cd backend
 <br>
+create a new file ".env" through vs code and paste the below string
+<br>
+ATLAS_URI=mongodb+srv://junoDBAD320:88266883@restcluster-lbgos.mongodb.net/test?retryWrites=true&w=majority
+<br>
 nodemon server.js
 <br>
 <br>
