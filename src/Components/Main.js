@@ -5,7 +5,7 @@ import Nav from './Nav';
 class Main extends Component {   
     render(){      
         return(
-              <div>
+              <div id="main">
                 <Title/>
                 <Nav/>    
               </div>      

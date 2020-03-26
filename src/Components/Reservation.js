@@ -19,11 +19,12 @@ class Reservation extends Component {
     }
 
     render(){
+        //const shortDate = this.state.resDate.substring(0, 10);
         return(
                <div>
                <h3>RESERVATIONS:</h3> 
                {this.state.reservation.map(reservation =><li key = {reservation.id}>
-                   {reservation.guestName}, {reservation.partyNumber}, {reservation.resDate},
+                   {reservation.guestName}, {reservation.partyNumber}, {this.state.resDate},
                    {reservation.time24hr}, {reservation.tableNumber}, {reservation.date}, 
                    {reservation.instructions}
                       </li>

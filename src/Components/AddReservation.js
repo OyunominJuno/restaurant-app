@@ -49,7 +49,7 @@ export default class AddReservation extends Component {
     render() {
         return (
             <div><h4>ADD RESERVATION:</h4>
-                <form onSubmit={this.handleSubmit}>
+                <form id="reser" onSubmit={this.handleSubmit}>
                     <label>
                         Guest Name:
                     <input type="text" name="guestName" defaultValue={this.state.guestName} value={this.state.guestName} onChange={this.handleChange} />

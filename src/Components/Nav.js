@@ -11,7 +11,7 @@ class Nav extends Component{
         return(<Router><div className="navbar">
             <nav className="navbar navbar-dark bg-dark navbar-expand-lg">
             <div className="collpase navbar-collapse">
-                <ul className="navbar-nav mr-auto">
+                <ul className="navbar-nav mr-auto" id='mainNav'>
                     <li className="navbar-item">
                     <Link to="/api/order/front" className="nav-link">Front</Link>
                     </li>
@@ -29,7 +29,7 @@ class Nav extends Component{
                     <Route path="/api/order/front" component={Front}/>
                     <Route path="/api/order/waitress" component={NavWaitress}/>
                     <Route path="/api/order/chef" component={Chef}/>
-        
+        <br   />
         </div>
         </Router>
               )

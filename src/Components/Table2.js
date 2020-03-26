@@ -31,6 +31,7 @@ class Table2 extends Component {
         return (
 
             <div>
+                <br   />
                 <h1>Waitress Console for Table 2</h1>
                 <h2>{this.state.reservation.length === 0 ? 'There is no reservation' : 'Reservation:'}</h2>
                 <table>
@@ -48,18 +49,6 @@ class Table2 extends Component {
                         {this.state.reservation.map(reservation => <td key={reservation.id}>
                             Arriving at {reservation.time24hr}
                             <br />
-                            <form onSubmit={this.handleSubmit}>
-                                <label>
-                                    <select name="partyNumber" onChange={this.handleChange} value={this.state.partyNumber}>
-                                        <option value="Poached Lobster">Poached Lobster</option>
-                                        <option value="Wild Scottish Sea Trout">Wild Scottish Sea Trout</option>
-                                        <option value="White Quail">White Quail</option>
-                                        <option value="Poached Apple Salad">Poached Apple Salad</option>
-                                        <option value="Bread and Butter">Bread and Butter</option>
-                                        <option value="Royal Ossetra Caviar">Royal Ossetra Caviar</option>
-                                    </select>
-                                </label>
-                            </form>
                             
                 <TableInfo/>
                         </td>)}

@@ -8,21 +8,21 @@ import Table4 from './Table4';
 
 class NavWaitress extends Component{  
     render(){   
-        return(<Router><div className="navbar-tables">
+        return(<Router><br /><div className="navbar-tables">
             <nav className="navbar">
             <div className="a">
-                <ul className="aa">
+                <ul className="aa" id="mainMenu">
                     <li className="navbar-item">
-                    <Link to="/api/table1" className="nav-link">Table1</Link>
+                    <Link to="/api/order/table1" className="nav-link">Table 1</Link>
                     </li>
               <li className="navbar-item">
-              <Link to="/api/table2" className="nav-link">Table2</Link>
+              <Link to="/api/order/table2" className="nav-link">Table 2</Link>
               </li>
               <li className="navbar-item">
-              <Link to="/api/table3" className="nav-link">Table3</Link>
+              <Link to="/api/order/table3" className="nav-link">Table 3</Link>
               </li>
               <li className="navbar-item">
-              <Link to="/api/table4" className="nav-link">Table4</Link>
+              <Link to="/api/order/table4" className="nav-link">Table 4</Link>
               </li>
               
             </ul>
@@ -30,11 +30,11 @@ class NavWaitress extends Component{
           </nav>
         
 
-                    <Route path="/api/table1" component={Table1}/>
-                    <Route path="/api/table2" component={Table2}/>
-                    <Route path="/api/table3" component={Table3}/>
-                    <Route path="/api/table4" component={Table4}/>
-        
+                    <Route path="/api/order/table1" component={Table1}/>
+                    <Route path="/api/order/table2" component={Table2}/>
+                    <Route path="/api/order/table3" component={Table3}/>
+                    <Route path="/api/order/table4" component={Table4}/>
+                    <br   />
         </div>
         </Router>
               )
