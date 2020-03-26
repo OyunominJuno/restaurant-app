@@ -10,20 +10,26 @@ import UpdateMenuItem from './UpdateMenuItem'
 import DishList from './DishList';
 import Nav from './Nav';
 import Order from './Order';
+import OrderList from './OrderList';
+import AddIngredient from './AddIngredient';
+import IngredientList from './IngredientList';
 
 class Chef extends Component {   
     render(){      
         return( <div> 
-                    <br   />
                     <h1>Chef Console</h1> 
-                    <Order/>
+                    {/* <Order/> */}
+                    <OrderList/>
                     <br/>
-                    <h3>Make Order</h3>
+                    <h3>Order Up</h3>
                     <br/>
                     <AddDish/>
                     <br/>
                     <DishList/>
-                    
+                    <br/>
+                    <AddIngredient/>
+                    <br/>
+                    <IngredientList/>
                 </div>      
               )
     }
