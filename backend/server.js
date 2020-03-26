@@ -21,9 +21,11 @@ connection.once('open', () => {
 const dishesRouter = require('./routes/getDishesExpress');
 const ordersRouter = require('./routes/getOrdersExpress');
 const reservationsRouter = require('./routes/getReservationsExpress');
+const ingredientsRouter = require('./routes/getIngredientsExpress');
 app.use('/dishes', dishesRouter);
 app.use('/orders', ordersRouter);
 app.use('/reservations', reservationsRouter);
+app.use('/ingredients', ingredientsRouter);
 
 app.listen(port, () => {
     console.log(`Server is running on port: ${port}`);

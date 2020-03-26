@@ -10,11 +10,6 @@ export default class OrderList extends Component {
         }
        this.onMake = this.onMake.bind(this);
     }
-
-    // state = {
-    //     orders: [],
-    //     ordersMade: []
-    // }
     
 
 componentDidMount(){
@@ -38,10 +33,12 @@ onMake(index, e) {
 render(){
     
     return(
+        <div id ="orderlist">
         <ul>
             {this.state.orders.map(order => <li>Order for table: {order.tableNumber} Seat: {order.seatNumber} -- {order.orderArray} -- Est. Cooktime: {order.waitTime} min  <button>Make Order</button>   <button>Cancel Order</button></li>)}
             {/* {this.state.orders.map((order, index) => <li>Order for table: {order.tableNumber} Seat: {order.seatNumber} -- {order.orderArray} -- Est. Cooktime: {order.waitTime} min  <button onClick={this.onMake(index, e)}>Make Order</button>   <button>Cancel Order</button></li>)} */}
         </ul>
+        </div>
     )
 }
 }

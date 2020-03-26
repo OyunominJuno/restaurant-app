@@ -93,12 +93,10 @@ class TableInfo extends Component {
                 
                             <button type="submit" onClick={this.onSubmit}><strong>Place Order</strong></button>
                             <button onClick={this.onPay}><strong>Pay Order</strong></button>
-                            <h4>Order:</h4>
-                            {this.state.orderArray.map(elem => {
-                                return (<p>{elem + " "}</p>)
-                            })}
+                            
                             <h4>Menu:</h4>
                             {listItems}
+                            <h4>Order:</h4>
                             <ol>
                                 {listOrders}
                             </ol>

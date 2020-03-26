@@ -6,8 +6,7 @@ export default class AddDish extends Component {
        name: '', 
        description: '',
        quantity: '',
-       service: '',
-       waitTime: ''
+       service: ''
     }
 
    
@@ -25,8 +24,7 @@ handleSubmit = event => {
         name: this.state.name, 
        description: this.state.description,
        quantity: this.state.quantity,
-       service: this.state.service,
-       waitTime: this.state.waitTime
+       service: this.state.service
     }
     //event.preventDefault();
    axios.post('http://localhost:3200/dishes/add', dish)
@@ -52,18 +50,14 @@ render(){
                      Quantity:
                     <input type="text" name="quantity" value={this.state.quantity} onChange={this.handleChange} />
                 </label>
-                <label>
-                     Cook Time:
-                    <input type="text" name="waitTime" value={this.state.waitTime} onChange={this.handleChange} />
-                </label>
                 <label>         
                     Service         
                         <select name="service" onChange={this.handleChange} value={this.state.service}>                
-                            <option value="default">Lunch/Dinner</option>  
-                            <option value="lunch">Lunch</option>         
-                            <option value="dinner">Dinner</option>                
+                            <option value="dinner">Dinner</option>  
+                            <option value="lunch">Lunch</option>                        
                         </select>   
                 </label>
+
                 <button type="submit"> Add</button>
             </form>
         </div>

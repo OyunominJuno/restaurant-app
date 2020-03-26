@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 const reservationSchema = new mongoose.Schema({  
     guestName: String, 
     partyNumber: Number, 
-    resDate: Date,   
+    resDate: String,   
     time24hr: String, 
     weekDay: String,
     tableNumber: Number,    
