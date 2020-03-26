@@ -7,7 +7,7 @@ export default class AddReservation extends Component {
         this.state = {
             guestName: '',
             partyNumber: 0,
-            resDate: null,
+            resDate: '',
             time24hr: '',
             weekDay: '',
             tableNumber: 0,
@@ -49,13 +49,13 @@ export default class AddReservation extends Component {
     render() {
         return (
             <div><h4>ADD RESERVATION:</h4>
-                <form id="reser" onSubmit={this.handleSubmit}>
+                <form onSubmit={this.handleSubmit}>
                     <label>
-                        Guest Name:
+                        Guest Name: 
                     <input type="text" name="guestName" defaultValue={this.state.guestName} value={this.state.guestName} onChange={this.handleChange} />
                     </label>
                     <label>
-                        Party number
+                        Party of: 
                         <select name="partyNumber" onChange={this.handleChange} value={this.state.partyNumber}>
                             <option value="-">-</option>
                             <option value="2">2</option>
@@ -70,7 +70,7 @@ export default class AddReservation extends Component {
                         </select>
                     </label>
                     <label>
-                        ResDate:
+                        Reservation Date:
                     <input type="text" name="resDate" value={this.state.resDate} onChange={this.handleChange} />
                     </label>
                     <label>

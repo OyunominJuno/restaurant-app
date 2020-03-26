@@ -13,7 +13,6 @@ import Nav from './Nav';
 class Front extends Component {   
     render(){      
         return( <div> 
-                    <br   />
                     <h1>Front Console</h1> 
                     <br/>
                     <Table/>

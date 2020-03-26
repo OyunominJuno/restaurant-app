@@ -1,13 +1,11 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 
-export default class AddDish extends Component {
+export default class AddIngredient extends Component {
        state = {
        name: '', 
-       description: '',
        quantity: '',
-       service: '',
-       waitTime: ''
+       forDish: ''
     }
 
    
@@ -21,15 +19,13 @@ handleChange = event => {
 }
 
 handleSubmit = event => {
-    const dish = {
+    const ingredient = {
         name: this.state.name, 
-       description: this.state.description,
-       quantity: this.state.quantity,
-       service: this.state.service,
-       waitTime: this.state.waitTime
+        quantity: this.state.quantity,
+        forDish: this.state.forDish
     }
     //event.preventDefault();
-   axios.post('http://localhost:3200/dishes/add', dish)
+   axios.post('http://localhost:3200/ingredients/add', ingredient)
       .then(res => {
           console.log(res.data);
       }).catch(err => console.log(err))
@@ -38,30 +34,26 @@ handleSubmit = event => {
 render(){
     return(
         <div>
-            <h3>Add a Dish</h3>
+            <h3>Add to Shopping List</h3>
             <form onSubmit={this.handleSubmit}>
                 <label>
-                     Dish Name:
+                     Ingredient Name:
                     <input type="text" name="name" defaultValue={this.state.name} value={this.state.name} onChange={this.handleChange} />
-                </label>
-                <label>
-                     Description:
-                    <input type="text" name="description" value={this.state.description} onChange={this.handleChange} />
                 </label>
                 <label>
                      Quantity:
                     <input type="text" name="quantity" value={this.state.quantity} onChange={this.handleChange} />
                 </label>
-                <label>
-                     Cook Time:
-                    <input type="text" name="waitTime" value={this.state.waitTime} onChange={this.handleChange} />
-                </label>
                 <label>         
-                    Service         
-                        <select name="service" onChange={this.handleChange} value={this.state.service}>                
-                            <option value="default">Lunch/Dinner</option>  
-                            <option value="lunch">Lunch</option>         
-                            <option value="dinner">Dinner</option>                
+                     For Dish:         
+                        <select name="forDish" onChange={this.handleChange} value={this.state.forDish}>                
+                            <option value="default">Select Dish</option>  
+                            <option value="Poached Lobster">Poached Lobster</option>         
+                            <option value="Wild Scottish Sea Trout">Wild Scottish Sea Trout</option>
+                            <option value="White Quail">White Quail</option>  
+                            <option value="Poached Apple Salad">Poached Apple Salad</option>  
+                            <option value="Bread and Butter">Bread and Butter</option>  
+                            <option value="Royal Ossetra Caviar">Royal Ossetra Caviar</option>                  
                         </select>   
                 </label>
                 <button type="submit"> Add</button>
